@@ -14,11 +14,13 @@ namespace WebScraper
     public partial class Form1 : Form
     {
         private readonly ISearchForCars search;
+        private readonly ICarDetails details;
 
-        public Form1(ISearchForCars search)
+        public Form1(ISearchForCars search,ICarDetails details)
         {
             InitializeComponent();
             this.search = search;
+            this.details = details;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -40,6 +42,7 @@ namespace WebScraper
             if (result != 0)
             {
                 data.AddRange(await search.GetAllCarsFromPages(result, url));
+                listBox1.DataSource = data;
                 numberOfCars.Text = listBox1.Items.Count.ToString();
             }
             else
@@ -59,6 +62,7 @@ namespace WebScraper
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Clipboard.SetDataObject(this.listBox1.SelectedItem.ToString());
             listBox1.MouseDoubleClick -= ListBox1_MouseDoubleClick;
             listBox1.MouseDoubleClick += ListBox1_MouseDoubleClick;
         }
@@ -73,6 +77,13 @@ namespace WebScraper
             p.Start();
 
 
+        }
+
+        private async void button1_Click_1(object sender, EventArgs e)
+        {
+            var url = textBox2.Text;
+            
+            listBox1.DataSource = await details.GetInfoAboutCar(url);
         }
     }
 }

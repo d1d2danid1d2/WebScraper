@@ -17,6 +17,7 @@ namespace WebScraper
         private static void ConfigureServices(ServiceCollection services)
         {
             services.AddScoped<ISearchForCars, SearchForCars>();
+            services.AddScoped<ICarDetails, CarDetails>();
 
             services.AddScoped<Form1>();
         }
