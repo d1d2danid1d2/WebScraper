@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebScraper.Forms;
 
 namespace WebScraper
 {
@@ -17,9 +18,12 @@ namespace WebScraper
         private static void ConfigureServices(ServiceCollection services)
         {
             services.AddScoped<ISearchForCars, SearchForCars>();
-            services.AddScoped<ICarDetails, CarDetails>();
+            services.AddScoped<IClassContentSwapper, ClassContentSwapper>();
 
-            services.AddScoped<Form1>();
+            services.AddScoped<MainMenuForm>();
+            services.AddScoped<SearchForm>();
+            services.AddScoped<CarDetailForm>();
+            
         }
 
 
@@ -35,7 +39,7 @@ namespace WebScraper
 
             using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
-                var form1 = serviceProvider.GetRequiredService<Form1>();
+                var form1 = serviceProvider.GetRequiredService<MainMenuForm>();               
                 Application.Run(form1);
             }
         }

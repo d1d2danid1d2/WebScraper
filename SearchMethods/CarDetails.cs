@@ -8,11 +8,7 @@ using HtmlAgilityPack;
 
 namespace WebScraper
 {
-    public interface ICarDetails
-    {
-        Task<List<string>> GetInfoAboutCar(string url);
-    }
-    public class CarDetails : ICarDetails
+    public class CarDetails
     {
 
         public async Task<List<string>> GetInfoAboutCar(string url)
