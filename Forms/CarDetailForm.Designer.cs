@@ -32,16 +32,15 @@ namespace WebScraper.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.linkTextbox = new System.Windows.Forms.TextBox();
             this.nameTextbox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.score = new System.Windows.Forms.TextBox();
+            this.scoreBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pageOpenButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -69,9 +68,7 @@ namespace WebScraper.Forms
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.linkTextbox);
             this.panel2.Controls.Add(this.nameTextbox);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(225, 0);
@@ -79,34 +76,18 @@ namespace WebScraper.Forms
             this.panel2.Size = new System.Drawing.Size(575, 77);
             this.panel2.TabIndex = 1;
             // 
-            // linkTextbox
-            // 
-            this.linkTextbox.Location = new System.Drawing.Point(62, 38);
-            this.linkTextbox.Name = "linkTextbox";
-            this.linkTextbox.Size = new System.Drawing.Size(412, 27);
-            this.linkTextbox.TabIndex = 3;
-            // 
             // nameTextbox
             // 
-            this.nameTextbox.Location = new System.Drawing.Point(62, 8);
+            this.nameTextbox.Location = new System.Drawing.Point(62, 25);
             this.nameTextbox.Name = "nameTextbox";
             this.nameTextbox.ReadOnly = true;
             this.nameTextbox.Size = new System.Drawing.Size(412, 27);
             this.nameTextbox.TabIndex = 2;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Link";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 8);
+            this.label1.Location = new System.Drawing.Point(7, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 20);
             this.label1.TabIndex = 0;
@@ -114,7 +95,8 @@ namespace WebScraper.Forms
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.score);
+            this.panel3.Controls.Add(this.pageOpenButton);
+            this.panel3.Controls.Add(this.scoreBox);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
@@ -125,13 +107,13 @@ namespace WebScraper.Forms
             this.panel3.Size = new System.Drawing.Size(575, 373);
             this.panel3.TabIndex = 2;
             // 
-            // score
+            // scoreBox
             // 
-            this.score.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.score.Location = new System.Drawing.Point(298, 48);
-            this.score.Name = "score";
-            this.score.Size = new System.Drawing.Size(125, 65);
-            this.score.TabIndex = 4;
+            this.scoreBox.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.scoreBox.Location = new System.Drawing.Point(298, 48);
+            this.scoreBox.Name = "scoreBox";
+            this.scoreBox.Size = new System.Drawing.Size(125, 65);
+            this.scoreBox.TabIndex = 4;
             // 
             // label3
             // 
@@ -170,6 +152,16 @@ namespace WebScraper.Forms
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // pageOpenButton
+            // 
+            this.pageOpenButton.Location = new System.Drawing.Point(298, 137);
+            this.pageOpenButton.Name = "pageOpenButton";
+            this.pageOpenButton.Size = new System.Drawing.Size(125, 71);
+            this.pageOpenButton.TabIndex = 5;
+            this.pageOpenButton.Text = "Open Page";
+            this.pageOpenButton.UseVisualStyleBackColor = true;
+            this.pageOpenButton.Click += new System.EventHandler(this.pageOpenButton_Click);
+            // 
             // CarDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -196,14 +188,13 @@ namespace WebScraper.Forms
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox nameTextbox;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox score;
+        private System.Windows.Forms.TextBox scoreBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        public System.Windows.Forms.TextBox linkTextbox;
+        private System.Windows.Forms.Button pageOpenButton;
     }
 }

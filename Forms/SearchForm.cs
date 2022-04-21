@@ -26,16 +26,24 @@ namespace WebScraper.Forms
             string url = searchLink.Text;
             int result;
             bool nrParse = int.TryParse(pageCount.Text, out result);
+            try
+            {
+                resultBox.DataSource = await searchForCars.GetAllCarsFromPages(result, url);
+                resultBoxCount.Text = resultBox.Items.Count.ToString();
+            }
+            catch (Exception)
+            {
 
-            resultBox.DataSource = await searchForCars.GetAllCarsFromPages(result, url);
-            resultBoxCount.Text = resultBox.Items.Count.ToString();
+                MessageBox.Show("The url might be wrong");
+            }
+
         }
 
         public void ResultBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             resultBox.MouseDoubleClick -= ResultBox_MouseDoubleClick;
             resultBox.MouseDoubleClick += ResultBox_MouseDoubleClick;
-            
+
         }
         private void ResultBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
