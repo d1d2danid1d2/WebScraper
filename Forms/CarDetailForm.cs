@@ -21,19 +21,29 @@ namespace WebScraper.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
         public async void GetDetails(string url)
         {
             this.url = url;
             CarDetails details = new();
-            nameTextbox.Text = await details.GetCarNameAsync(url);
-            listBox1.DataSource = await details.GetInfoAboutCar(url);
+            try
+            {
+                nameTextbox.Text = await details.GetCarNameAsync(url);
+                listBox1.DataSource = await details.GetInfoAboutCar(url);
+                scoreBox.Text = await details.GetScore(url);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         private void CarDetailForm_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void pageOpenButton_Click(object sender, EventArgs e)
@@ -44,7 +54,7 @@ namespace WebScraper.Forms
                 UseShellExecute = true
             };
             Process.Start(psInfo);
-            
+
         }
     }
 }

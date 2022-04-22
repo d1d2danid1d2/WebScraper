@@ -20,7 +20,6 @@ namespace WebScraper.Forms
             InitializeComponent();
             this.searchForm = searchForm;
         }
-        
 
         private void OpenChildForm(Form childForm, object btnSender)
         {

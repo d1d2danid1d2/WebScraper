@@ -33,10 +33,8 @@ namespace WebScraper.Forms
             }
             catch (Exception)
             {
-
-                MessageBox.Show("The url might be wrong");
+                MessageBox.Show("The url might be wrong or the request was refused!");
             }
-
         }
 
         public void ResultBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,10 +45,17 @@ namespace WebScraper.Forms
         }
         private void ResultBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            OpenDetailForm(resultBox.SelectedItem.ToString());
+        }
+
+        private void OpenDetailForm(string url)
+        {
             CarDetailForm detailForm = new();
-            string url = resultBox.SelectedItem.ToString();
+
+
             detailForm.GetDetails(url);
             detailForm.Show();
+
         }
     }
 }
